@@ -3,12 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- EDIT: Change this to your name -->
     <title>Marshall Williams</title>
     <style>
-        /* Basic styles for the page */
         body {
-            background-color: #f4f4f4; /* A light grey background to make the white page stand out */
+            background-color: #f4f4f4;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
             padding: 2rem;
@@ -16,32 +14,27 @@
             justify-content: center;
         }
 
-        /* This is the main white "piece of paper" container */
         .page-container {
             background-color: white;
             max-width: 900px;
             width: 100%;
-            padding: 3rem 4rem; /* More padding on the sides than top/bottom */
+            padding: 3rem 4rem;
             display: grid;
-            grid-template-columns: 1fr 3fr; /* Creates two columns: one for nav, one for content */
-            gap: 4rem; /* Space between the two columns */
+            grid-template-columns: 1fr 3fr;
+            gap: 4rem;
         }
 
-        /* Styles for your picture */
         .profile-picture {
             width: 150px;
             height: 150px;
-            object-fit: cover; /* Prevents the image from stretching */
-            border-radius: 5px; /* Slightly rounded corners */
+            object-fit: cover;
+            border-radius: 5px;
         }
 
-        /* Styles for the navigation links area */
-        .sidebar {
-            /* This column will contain your picture and links */
-        }
+        .sidebar {}
 
         .sidebar nav ul {
-            list-style: none; /* Removes bullet points */
+            list-style: none;
             padding: 0;
             margin-top: 1.5rem;
         }
@@ -58,17 +51,15 @@
         }
 
         .sidebar nav a:hover {
-            color: #007bff; /* Link color changes on hover */
+            color: #007bff;
         }
 
-        /* Styles for the main content on the right */
         .main-content {
             padding-top: 0.5rem;
         }
 
-        /* Styles for each section (About, Projects, etc.) */
         .main-content section {
-            margin-bottom: 3rem; /* Space between sections */
+            margin-bottom: 3rem;
         }
 
         .main-content h1 {
@@ -88,16 +79,39 @@
         }
 
         .project {
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
 
-        /* This makes the layout stack on smaller screens */
+        .project a {
+            color: #0056b3;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .project a:hover {
+            text-decoration: underline;
+        }
+
+        .project-images {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .project-images img {
+            max-width: 200px;
+            height: auto;
+            border-radius: 4px;
+            border: 1px solid #eee;
+        }
+
         @media (max-width: 768px) {
             body {
                 padding: 0;
             }
             .page-container {
-                grid-template-columns: 1fr; /* A single column on mobile */
+                grid-template-columns: 1fr;
                 padding: 2rem;
             }
             .main-content {
@@ -108,32 +122,25 @@
 </head>
 <body>
 
-    <!-- This is the main white container for your whole page -->
     <div class="page-container">
 
-        <!-- ===== LEFT COLUMN (SIDEBAR) ===== -->
         <aside class="sidebar">
-            
-            <!-- EDIT: Change the 'src' to the path of your photo -->
+
             <img src="profile1.jpg" alt="A picture of Marshall Williams" class="profile-picture">
 
             <nav>
                 <ul>
-                    <!-- These are your navigation links. The href="#about" links to the section with id="about" -->
                     <li><a href="#about">About</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <!-- Make sure your resume PDF is in the same folder and named correctly -->
-                    <li><a href="resume.pdf" target="_blank">Resume</a></li>
                     <li><a href="#contact">Contact</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="resume.pdf" target="_blank">Resume</a></li>
                 </ul>
             </nav>
 
         </aside>
 
-        <!-- ===== RIGHT COLUMN (MAIN CONTENT) ===== -->
         <main class="main-content">
 
-            <!-- This is the About section. The id="about" is important for the link to work. -->
             <section id="about">
                 <h1>Marshall Williams</h1>
                 <p>
@@ -150,31 +157,7 @@
                     <li>Cats</li>
                 </ul>
             </section>
-
-            <!-- This is the Projects section. -->
-            <section id="projects">
-                <h2>Projects</h2>
-
-                <div class="project">
-                    <p>
-                        <strong>NYC Taxi Data Analytics & Prediction Platform</strong> - Architected a containerized, serverless AWS pipeline using S3, Athena, and Fargate to process millions of taxi records. Built a machine learning model with SageMaker to predict trip durations and created dashboards for visualizing rider demand and fare data.
-                    </p>
-                </div>
-
-                <div class="project">
-                     <p>
-                        <strong>Riot Games Match Data Analytics Platform</strong> - Engineered a Python ETL pipeline to process Riot API data into a MySQL database for game performance analysis. Created a Flask REST API to serve stats and built a responsive React and Tailwind CSS single-page application for interactive data visualization.
-                    </p>
-                </div>
-                
-                <div class="project">
-                    <p>
-                        <strong>Overthrow: Real-Time Multiplayer Strategy Game</strong> - Engineered a scalable Node.js/Express backend with Socket.IO for real-time multiplayer matches. Architected server-side logic to coordinate game flow with low-latency updates and integrated Redis for consistent state management.
-                    </p>
-                </div>
-            </section>
-
-            <!-- This is the Contact section. -->
+            
             <section id="contact">
                 <h2>Contact</h2>
                 <p>
@@ -184,12 +167,44 @@
                 </p>
             </section>
 
+            <section id="projects">
+                <h2>Projects</h2>
+
+                <div class="project">
+                    <p>
+                        <a href="https://github.com/MarshallWilliams1/taxi" target="_blank">NYC Taxi Data Analytics & Prediction Platform</a> - Architected a containerized, serverless AWS pipeline using S3, Athena, and Fargate to process millions of taxi records. Built a machine learning model with SageMaker to predict trip durations and created dashboards for visualizing rider demand and fare data.
+                    </p>
+                    <div class="project-images">
+                        <img src="taxi1.png" alt="Project image 1">
+                        <img src="taxi2.png" alt="Project image 2">
+                    </div>
+                </div>
+
+                <div class="project">
+                     <p>
+                        <a href="https://github.com/MarshallWilliams1/riot-etl" target="_blank">Riot Games Match Data Analytics Platform</a> - Engineered a Python ETL pipeline to process Riot API data into a MySQL database for game performance analysis. Created a Flask REST API to serve stats and built a responsive React and Tailwind CSS single-page application for interactive data visualization.
+                    </p>
+                    <div class="project-images">
+                        <img src="riot1.png" alt="Project image 1">
+                        <img src="riot2.png" alt="Project image 2">
+                    </div>
+                </div>
+                
+                <div class="project">
+                    <p>
+                        <a href="https://github.com/MarshallWilliams1/Overthrow" target="_blank">Overthrow: Real-Time Multiplayer Strategy Game</a> - Engineered a scalable Node.js/Express backend with Socket.IO for real-time multiplayer matches. Architected server-side logic to coordinate game flow with low-latency updates and integrated Redis for consistent state management.
+                    </p>
+                    <div class="project-images">
+                        <img src="ot1.png" alt="Project image 1">
+                        <img src="ot2.png" alt="Project image 2">
+                    </div>
+                </div>
+            </section>
+
         </main>
 
     </div>
 
 </body>
 </html>
-
-
 

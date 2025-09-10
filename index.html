@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- EDIT: Change this to your name -->
+    <title>Marshall Williams</title>
+    <style>
+        /* Basic styles for the page */
+        body {
+            background-color: #f4f4f4; /* A light grey background to make the white page stand out */
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* This is the main white "piece of paper" container */
+        .page-container {
+            background-color: white;
+            max-width: 900px;
+            width: 100%;
+            padding: 3rem 4rem; /* More padding on the sides than top/bottom */
+            display: grid;
+            grid-template-columns: 1fr 3fr; /* Creates two columns: one for nav, one for content */
+            gap: 4rem; /* Space between the two columns */
+        }
+
+        /* Styles for your picture */
+        .profile-picture {
+            width: 150px;
+            height: 150px;
+            object-fit: cover; /* Prevents the image from stretching */
+            border-radius: 5px; /* Slightly rounded corners */
+        }
+
+        /* Styles for the navigation links area */
+        .sidebar {
+            /* This column will contain your picture and links */
+        }
+
+        .sidebar nav ul {
+            list-style: none; /* Removes bullet points */
+            padding: 0;
+            margin-top: 1.5rem;
+        }
+
+        .sidebar nav li {
+            margin-bottom: 0.75rem;
+        }
+
+        .sidebar nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .sidebar nav a:hover {
+            color: #007bff; /* Link color changes on hover */
+        }
+
+        /* Styles for the main content on the right */
+        .main-content {
+            padding-top: 0.5rem;
+        }
+
+        /* Styles for each section (About, Projects, etc.) */
+        .main-content section {
+            margin-bottom: 3rem; /* Space between sections */
+        }
+
+        .main-content h1 {
+            font-size: 2rem;
+            margin-top: 0;
+        }
+        
+        .main-content h2 {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.5rem;
+            margin-top: 0;
+        }
+
+        .main-content p {
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .project {
+            margin-bottom: 1.5rem;
+        }
+
+        /* This makes the layout stack on smaller screens */
+        @media (max-width: 768px) {
+            body {
+                padding: 0;
+            }
+            .page-container {
+                grid-template-columns: 1fr; /* A single column on mobile */
+                padding: 2rem;
+            }
+            .main-content {
+                padding-top: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- This is the main white container for your whole page -->
+    <div class="page-container">
+
+        <!-- ===== LEFT COLUMN (SIDEBAR) ===== -->
+        <aside class="sidebar">
+            
+            <!-- EDIT: Change the 'src' to the path of your photo -->
+            <img src="profile1.jpg" alt="A picture of Marshall Williams" class="profile-picture">
+
+            <nav>
+                <ul>
+                    <!-- These are your navigation links. The href="#about" links to the section with id="about" -->
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <!-- Make sure your resume PDF is in the same folder and named correctly -->
+                    <li><a href="resume.pdf" target="_blank">Resume</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+
+        </aside>
+
+        <!-- ===== RIGHT COLUMN (MAIN CONTENT) ===== -->
+        <main class="main-content">
+
+            <!-- This is the About section. The id="about" is important for the link to work. -->
+            <section id="about">
+                <h1>Marshall Williams</h1>
+                <p>
+                    <strong>About Me:</strong> I'm Marshall Williams. I am a fourth-year Computer Science student at Texas State University, San Marcos. I love building Games, Websites, Applications, and Data Pipelines.
+                </p>
+                <p>
+                    <strong>Tools Used:</strong> C++, Java, JavaScript, Python, HTML/CSS, Node.js, React, Flask, Rest APIs, Git, Agile, Jira, Selenium, Linux, MySQL, Pandas, Microsoft Excel, AWS Cloud Operations, Machine Learning, Docker, Terraform, CI/CD
+                </p>
+                <p><strong>Non-professional Interests</strong></p>
+                <ul>
+                    <li>Weight-lifting</li>
+                    <li>Audiobooks (fantasy themes)</li>
+                    <li>League of Legends</li>
+                    <li>Cats</li>
+                </ul>
+            </section>
+
+            <!-- This is the Projects section. -->
+            <section id="projects">
+                <h2>Projects</h2>
+
+                <div class="project">
+                    <p>
+                        <strong>NYC Taxi Data Analytics & Prediction Platform</strong> - Architected a containerized, serverless AWS pipeline using S3, Athena, and Fargate to process millions of taxi records. Built a machine learning model with SageMaker to predict trip durations and created dashboards for visualizing rider demand and fare data.
+                    </p>
+                </div>
+
+                <div class="project">
+                     <p>
+                        <strong>Riot Games Match Data Analytics Platform</strong> - Engineered a Python ETL pipeline to process Riot API data into a MySQL database for game performance analysis. Created a Flask REST API to serve stats and built a responsive React and Tailwind CSS single-page application for interactive data visualization.
+                    </p>
+                </div>
+                
+                <div class="project">
+                    <p>
+                        <strong>Overthrow: Real-Time Multiplayer Strategy Game</strong> - Engineered a scalable Node.js/Express backend with Socket.IO for real-time multiplayer matches. Architected server-side logic to coordinate game flow with low-latency updates and integrated Redis for consistent state management.
+                    </p>
+                </div>
+            </section>
+
+            <!-- This is the Contact section. -->
+            <section id="contact">
+                <h2>Contact</h2>
+                <p>
+                    <a href="mailto:marshall.junior03@gmail.com">marshall.junior03@gmail.com</a><br>
+                    <a href="https://www.linkedin.com/in/marshall-williams-274933191/" target="_blank">LinkedIn</a><br>
+                    <a href="https://github.com/MarshallWilliams1" target="_blank">GitHub</a>
+                </p>
+            </section>
+
+        </main>
+
+    </div>
+
+</body>
+</html>
+
+
+

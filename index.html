@@ -1,211 +1,1099 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marshall Williams</title>
-    <style>
-        body {
-            background-color: #f4f4f4;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            margin: 0;
-            padding: 2rem;
-            display: flex;
-            justify-content: center;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marshall Williams | Data & Decision Science</title>
+<meta name="description" content="Marshall Williams is a Computer Science and History graduate working in data and decision science. Predictive analytics, ML pipelines, and data engineering on AWS and Azure.">
 
-        .page-container {
-            background-color: white;
-            max-width: 900px;
-            width: 100%;
-            padding: 3rem 4rem;
-            display: grid;
-            grid-template-columns: 1fr 3fr;
-            gap: 4rem;
-        }
+<!-- Open Graph -->
+<meta property="og:title" content="Marshall Williams | Data & Decision Science">
+<meta property="og:description" content="Turning raw data into decisions. Predictive analytics, ML pipelines, and data engineering.">
+<meta property="og:image" content="profile1.jpg">
+<meta property="og:type" content="website">
 
-        .profile-picture {
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 5px;
-        }
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f172a'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='26' font-weight='700' fill='%2314b8a6' text-anchor='middle'%3EMW%3C/text%3E%3C/svg%3E">
 
-        .sidebar {}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-        .sidebar nav ul {
-            list-style: none;
-            padding: 0;
-            margin-top: 1.5rem;
-        }
+<style>
+  :root{
+    --ink: #0f172a;
+    --ink-soft: #475569;
+    --ink-faint: #94a3b8;
+    --bg: #f6f7fb;
+    --card: #ffffff;
+    --border: #e6e9f0;
+    --accent: #0d9488;
+    --accent-ink: #0f766e;
+    --accent-soft: #e6f6f4;
+    --indigo: #6366f1;
+    --dark: #0b1220;
+    --dark-soft: #172033;
+    --radius: 14px;
+    --shadow: 0 1px 2px rgba(15,23,42,.04), 0 8px 24px rgba(15,23,42,.06);
+    --shadow-lg: 0 20px 45px rgba(15,23,42,.16);
+    --maxw: 1100px;
+  }
 
-        .sidebar nav li {
-            margin-bottom: 0.75rem;
-        }
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
 
-        .sidebar nav a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
+  body{
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
 
-        .sidebar nav a:hover {
-            color: #007bff;
-        }
+  .mono{ font-family: "JetBrains Mono", ui-monospace, Menlo, monospace; }
 
-        .main-content {
-            padding-top: 0.5rem;
-        }
+  section{ scroll-margin-top: 90px; }
 
-        .main-content section {
-            margin-bottom: 3rem;
-        }
+  .wrap{
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 1.75rem;
+  }
 
-        .main-content h1 {
-            font-size: 2rem;
-            margin-top: 0;
-        }
-        
-        .main-content h2 {
-            border-bottom: 1px solid #eee;
-            padding-bottom: 0.5rem;
-            margin-top: 0;
-        }
+  a{ color: inherit; }
 
-        .main-content p {
-            line-height: 1.6;
-            color: #555;
-        }
+  img{ max-width: 100%; display: block; }
 
-        .project {
-            margin-bottom: 2rem;
-        }
+  /* ---------- Header ---------- */
+  .site-header{
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.1rem 0;
+    transition: background .25s ease, box-shadow .25s ease, padding .25s ease, border-color .25s ease;
+    border-bottom: 1px solid transparent;
+  }
+  .site-header.scrolled{
+    background: rgba(246,247,251,.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom-color: var(--border);
+    padding: 0.75rem 0;
+  }
+  .site-header .wrap{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .brand{
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    text-decoration: none;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -.01em;
+  }
+  .site-header:not(.scrolled) .brand,
+  .site-header:not(.scrolled) .navlinks a,
+  .site-header:not(.scrolled) .nav-toggle span{
+    color: #fff;
+  }
+  .brand-mark{
+    width: 34px; height: 34px;
+    border-radius: 9px;
+    background: linear-gradient(135deg, var(--accent), var(--indigo));
+    color: #fff;
+    display: grid;
+    place-items: center;
+    font-size: .8rem;
+    font-weight: 800;
+    letter-spacing: .02em;
+  }
+  .navlinks{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+    margin: 0; padding: 0;
+  }
+  .navlinks a{
+    text-decoration: none;
+    font-weight: 500;
+    font-size: .92rem;
+    color: var(--ink-soft);
+    transition: color .2s ease;
+    position: relative;
+  }
+  .navlinks a:hover{ color: var(--accent); }
+  .navlinks a.active{ color: var(--accent); }
+  .nav-cta{
+    padding: .5rem 1rem;
+    border-radius: 999px;
+    background: var(--ink);
+    color: #fff !important;
+    font-size: .85rem !important;
+    font-weight: 600 !important;
+  }
+  .site-header.scrolled .nav-cta{ background: var(--ink); color:#fff !important; }
+  .nav-toggle{
+    display: none;
+    background: none;
+    border: none;
+    width: 34px; height: 34px;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    padding: 0;
+  }
+  .nav-toggle span{
+    display: block;
+    height: 2px;
+    background: var(--ink);
+    border-radius: 2px;
+    transition: transform .25s ease, opacity .25s ease, background .25s ease;
+  }
 
-        .project a {
-            color: #0056b3;
-            font-weight: bold;
-            text-decoration: none;
-        }
+  /* ---------- Hero ---------- */
+  .hero{
+    position: relative;
+    background: radial-gradient(circle at 15% 20%, #142035 0%, var(--dark) 55%), var(--dark);
+    color: #fff;
+    padding: 8.5rem 0 6.5rem;
+    overflow: hidden;
+  }
+  .hero::before{
+    content:"";
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
+    background-size: 42px 42px;
+    mask-image: radial-gradient(ellipse 70% 60% at 60% 30%, black, transparent);
+    pointer-events: none;
+  }
+  .hero-chart{
+    position: absolute;
+    right: -40px; bottom: -30px;
+    width: min(560px, 55vw);
+    opacity: .5;
+    pointer-events: none;
+  }
+  .hero .wrap{
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.25fr .75fr;
+    gap: 3.5rem;
+    align-items: center;
+  }
+  .eyebrow{
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    font-family: "JetBrains Mono", monospace;
+    font-size: .78rem;
+    letter-spacing: .04em;
+    color: #5eead4;
+    background: rgba(20,184,166,.12);
+    border: 1px solid rgba(20,184,166,.3);
+    padding: .4rem .8rem;
+    border-radius: 999px;
+    margin-bottom: 1.4rem;
+  }
+  .eyebrow .dot{
+    width: 7px; height: 7px; border-radius: 50%;
+    background: #2dd4bf;
+    box-shadow: 0 0 0 3px rgba(45,212,191,.25);
+  }
+  .hero h1{
+    font-size: clamp(2.3rem, 4.6vw, 3.4rem);
+    line-height: 1.08;
+    letter-spacing: -.02em;
+    margin: 0 0 1rem;
+    font-weight: 800;
+  }
+  .hero h1 span{
+    background: linear-gradient(90deg, #2dd4bf, #818cf8);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .hero p.lede{
+    font-size: 1.1rem;
+    line-height: 1.65;
+    color: #cbd5e1;
+    max-width: 46ch;
+    margin: 0 0 2rem;
+  }
+  .hero-ctas{
+    display: flex;
+    flex-wrap: wrap;
+    gap: .9rem;
+    margin-bottom: 2.75rem;
+  }
+  .btn{
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .8rem 1.35rem;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: .92rem;
+    text-decoration: none;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease, color .18s ease;
+  }
+  .btn:hover{ transform: translateY(-2px); }
+  .btn-primary{
+    background: linear-gradient(135deg, var(--accent), #0f9e8f);
+    color: #fff;
+    box-shadow: 0 10px 25px rgba(13,148,136,.35);
+  }
+  .btn-ghost{
+    background: rgba(255,255,255,.06);
+    border-color: rgba(255,255,255,.18);
+    color: #fff;
+  }
+  .btn-ghost:hover{ background: rgba(255,255,255,.12); }
+  .btn-outline{
+    background: transparent;
+    border-color: var(--border);
+    color: var(--ink);
+  }
+  .btn-outline:hover{ border-color: var(--accent); color: var(--accent-ink); }
 
-        .project a:hover {
-            text-decoration: underline;
-        }
+  .hero-socials{
+    display: flex;
+    gap: 1.1rem;
+  }
+  .hero-socials a{
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: .85rem;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    transition: color .2s ease;
+  }
+  .hero-socials a:hover{ color: #fff; }
 
-        .project-images {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-            flex-wrap: wrap;
-        }
+  .hero-photo-wrap{
+    position: relative;
+    justify-self: center;
+  }
+  .hero-photo-ring{
+    position: absolute;
+    inset: -14px;
+    border-radius: 26px;
+    background: linear-gradient(135deg, rgba(45,212,191,.55), rgba(129,140,248,.45));
+    filter: blur(2px);
+    opacity: .8;
+  }
+  .hero-photo{
+    position: relative;
+    width: min(280px, 60vw);
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 4px solid rgba(255,255,255,.08);
+    box-shadow: var(--shadow-lg);
+  }
+  .hero-badge{
+    position: absolute;
+    bottom: -18px;
+    left: -18px;
+    background: #fff;
+    color: var(--ink);
+    border-radius: 12px;
+    padding: .7rem .9rem;
+    box-shadow: var(--shadow-lg);
+    font-size: .78rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+  }
+  .hero-badge .num{
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 700;
+    color: var(--accent-ink);
+    font-size: .95rem;
+  }
 
-        .project-images img {
-            max-width: 600px;
-            height: auto;
-            border-radius: 4px;
-            border: 1px solid #eee;
-        }
+  /* ---------- Section shell ---------- */
+  .section{ padding: 5.5rem 0; }
+  .section-alt{ background: var(--card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .section-head{
+    max-width: 640px;
+    margin: 0 0 3rem;
+  }
+  .kicker{
+    font-family: "JetBrains Mono", monospace;
+    font-size: .8rem;
+    color: var(--accent-ink);
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    font-weight: 600;
+    margin-bottom: .6rem;
+    display: block;
+  }
+  .section-head h2{
+    font-size: clamp(1.6rem, 3vw, 2.1rem);
+    letter-spacing: -.01em;
+    margin: 0 0 .75rem;
+  }
+  .section-head p{
+    color: var(--ink-soft);
+    line-height: 1.65;
+    margin: 0;
+  }
 
-        @media (max-width: 768px) {
-            body {
-                padding: 0;
-            }
-            .page-container {
-                grid-template-columns: 1fr;
-                padding: 2rem;
-            }
-            .main-content {
-                padding-top: 2rem;
-            }
-        }
-    </style>
+  /* ---------- About ---------- */
+  .about-grid{
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+  .about-copy p{
+    color: var(--ink-soft);
+    line-height: 1.75;
+    font-size: 1.02rem;
+  }
+  .fact-card{
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+  }
+  .fact-card dl{ margin: 0; }
+  .fact-row{
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: .85rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .fact-row:last-child{ border-bottom: none; }
+  .fact-row dt{
+    font-size: .82rem;
+    color: var(--ink-faint);
+    font-weight: 500;
+  }
+  .fact-row dd{
+    margin: 0;
+    font-size: .88rem;
+    font-weight: 600;
+    text-align: right;
+    max-width: 60%;
+  }
+
+  /* ---------- Timeline ---------- */
+  .timeline{
+    position: relative;
+    margin: 0;
+    padding-left: 2rem;
+    border-left: 2px solid var(--border);
+  }
+  .tl-item{
+    position: relative;
+    padding-bottom: 3rem;
+  }
+  .tl-item:last-child{ padding-bottom: 0; }
+  .tl-item::before{
+    content: "";
+    position: absolute;
+    left: -2.46rem;
+    top: .3rem;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: var(--card);
+    border: 3px solid var(--accent);
+  }
+  .tl-head{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: .6rem .9rem;
+    margin-bottom: .6rem;
+  }
+  .tl-head h3{ margin: 0; font-size: 1.15rem; }
+  .tl-org{ color: var(--accent-ink); font-weight: 600; }
+  .tl-date{
+    margin-left: auto;
+    font-family: "JetBrains Mono", monospace;
+    font-size: .78rem;
+    color: var(--ink-faint);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    padding: .25rem .6rem;
+    border-radius: 999px;
+  }
+  .tl-focus{
+    font-size: .85rem;
+    font-weight: 600;
+    color: var(--ink-soft);
+    margin-bottom: .85rem;
+  }
+  .tl-item ul{
+    margin: 0;
+    padding-left: 1.15rem;
+    color: var(--ink-soft);
+    line-height: 1.65;
+  }
+  .tl-item li{ margin-bottom: .45rem; }
+  .tl-item li:last-child{ margin-bottom: 0; }
+  .tl-item li strong{ color: var(--ink); }
+
+  /* ---------- Education ---------- */
+  .edu-card{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.5rem;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+  }
+  .edu-icon{
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    background: var(--accent-soft);
+    color: var(--accent-ink);
+    display: grid;
+    place-items: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+  }
+  .edu-card h3{ margin: 0 0 .2rem; font-size: 1.1rem; }
+  .edu-card .edu-sub{ color: var(--ink-soft); font-size: .92rem; margin-bottom: .8rem; }
+  .edu-meta{
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    margin-bottom: .9rem;
+  }
+  .pill{
+    font-size: .76rem;
+    font-weight: 600;
+    padding: .3rem .65rem;
+    border-radius: 999px;
+    background: var(--accent-soft);
+    color: var(--accent-ink);
+  }
+  .edu-card p{ margin: 0; color: var(--ink-soft); font-size: .92rem; line-height: 1.6; }
+
+  /* ---------- Projects ---------- */
+  .projects-grid{
+    display: grid;
+    gap: 1.75rem;
+  }
+  .project-card{
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 2rem;
+    align-items: center;
+  }
+  .project-card.reverse{ grid-template-columns: 1fr 1.05fr; }
+  .project-card.reverse .project-body{ order: 2; }
+  .project-card.reverse .project-shots{ order: 1; }
+  .project-card.no-shots{ grid-template-columns: 1fr; }
+  .project-card.no-shots .project-body ul{ max-width: 65ch; }
+  .project-tags{
+    display: flex;
+    flex-wrap: wrap;
+    gap: .4rem;
+    margin-bottom: .9rem;
+  }
+  .tag{
+    font-size: .74rem;
+    font-weight: 600;
+    padding: .28rem .6rem;
+    border-radius: 6px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--ink-soft);
+    font-family: "JetBrains Mono", monospace;
+  }
+  .project-body h3{
+    margin: 0 0 .7rem;
+    font-size: 1.3rem;
+    letter-spacing: -.01em;
+  }
+  .project-body h3 a{
+    text-decoration: none;
+    color: var(--ink);
+  }
+  .project-body h3 a:hover{ color: var(--accent-ink); }
+  .project-body ul{
+    margin: 0 0 1.1rem;
+    padding-left: 1.1rem;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    font-size: .93rem;
+  }
+  .project-body li{ margin-bottom: .4rem; }
+  .project-link{
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    font-size: .87rem;
+    font-weight: 600;
+    color: var(--accent-ink);
+    text-decoration: none;
+  }
+  .project-link:hover{ text-decoration: underline; }
+  .project-shots{
+    display: grid;
+    gap: .75rem;
+  }
+  .project-shots img{
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    cursor: zoom-in;
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .project-shots img:hover{
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+  }
+
+  /* ---------- Skills ---------- */
+  .skills-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .skill-card{
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.6rem;
+  }
+  .skill-card h3{
+    margin: 0 0 1rem;
+    font-size: .95rem;
+    display: flex;
+    align-items: center;
+    gap: .55rem;
+  }
+  .skill-card h3 .sw{
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+  .skill-list{
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+  }
+  .skill-list span{
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: .35rem .7rem;
+    border-radius: 8px;
+    font-size: .82rem;
+    font-weight: 500;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- Contact ---------- */
+  .contact-band{
+    background: linear-gradient(135deg, var(--dark) 0%, var(--dark-soft) 100%);
+    border-radius: 20px;
+    padding: 3.5rem 3rem;
+    color: #fff;
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 2.5rem;
+    align-items: center;
+  }
+  .contact-band h2{
+    margin: 0 0 .75rem;
+    font-size: clamp(1.5rem, 2.6vw, 1.9rem);
+  }
+  .contact-band p{
+    color: #cbd5e1;
+    line-height: 1.65;
+    margin: 0;
+    max-width: 42ch;
+  }
+  .contact-links{
+    display: grid;
+    gap: .75rem;
+  }
+  .contact-link{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.14);
+    border-radius: 10px;
+    padding: .85rem 1.1rem;
+    text-decoration: none;
+    color: #fff;
+    font-size: .9rem;
+    font-weight: 500;
+    transition: background .2s ease, transform .2s ease;
+  }
+  .contact-link:hover{ background: rgba(255,255,255,.12); transform: translateX(3px); }
+  .contact-link .arrow{ color: #5eead4; font-family: "JetBrains Mono", monospace; }
+
+  /* ---------- Footer ---------- */
+  footer{
+    padding: 2.5rem 0 3rem;
+    text-align: center;
+  }
+  footer p{
+    color: var(--ink-faint);
+    font-size: .85rem;
+    margin: 0;
+  }
+
+  /* ---------- Lightbox ---------- */
+  .lightbox{
+    position: fixed; inset: 0;
+    background: rgba(11,18,32,.88);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    z-index: 1000;
+    cursor: zoom-out;
+  }
+  .lightbox.open{ display: flex; }
+  .lightbox img{
+    max-width: min(92vw, 1000px);
+    max-height: 88vh;
+    border-radius: 10px;
+    box-shadow: 0 30px 80px rgba(0,0,0,.5);
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px){
+    .hero .wrap{ grid-template-columns: 1fr; }
+    .hero-photo-wrap{ order: -1; margin-bottom: 1rem; }
+    .about-grid{ grid-template-columns: 1fr; }
+    .project-card, .project-card.reverse{
+      grid-template-columns: 1fr;
+    }
+    .project-card.reverse .project-body,
+    .project-card.reverse .project-shots{ order: initial; }
+    .project-shots{ grid-template-columns: 1fr 1fr; }
+    .contact-band{ grid-template-columns: 1fr; padding: 2.5rem 1.75rem; }
+    .skills-grid{ grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 720px){
+    .navlinks{
+      position: fixed;
+      top: 64px; left: 0; right: 0;
+      background: #fff;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+      padding: .5rem 1.75rem 1.25rem;
+      border-bottom: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      transform: translateY(-130%);
+      opacity: 0;
+      transition: transform .25s ease, opacity .2s ease;
+    }
+    .navlinks.open{ transform: translateY(0); opacity: 1; }
+    .navlinks li{ width: 100%; padding: .7rem 0; border-bottom: 1px solid var(--border); }
+    .navlinks li:last-child{ border-bottom: none; }
+    .navlinks a{ color: var(--ink-soft) !important; }
+    .nav-toggle{ display: flex; }
+    .section{ padding: 3.75rem 0; }
+    .hero{ padding: 7.5rem 0 5rem; }
+    .project-shots{ grid-template-columns: 1fr; }
+  }
+</style>
 </head>
 <body>
 
-    <div class="page-container">
+<header class="site-header" id="siteHeader">
+  <div class="wrap">
+    <a href="#top" class="brand">
+      <span class="brand-mark">MW</span>
+      Marshall Williams
+    </a>
+    <nav>
+      <ul class="navlinks" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="resume.pdf" target="_blank" class="nav-cta">Resume</a></li>
+      </ul>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
 
-        <aside class="sidebar">
+<main id="top">
 
-            <img src="profile1.jpg" alt="A picture of Marshall Williams" class="profile-picture">
-
-            <nav>
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="resume.pdf" target="_blank">Resume</a></li>
-                </ul>
-            </nav>
-
-        </aside>
-
-        <main class="main-content">
-
-            <section id="about">
-                <h1>Marshall Williams</h1>
-                <p>
-                    <strong>About Me:</strong> I'm Marshall Williams. I am a fourth-year Computer Science student at Texas State University, San Marcos. I love building Games, Websites, Applications, and Data Pipelines.
-                </p>
-                <p>
-                    <strong>Tools Used:</strong> C++, Java, JavaScript, Python, HTML/CSS, Node.js, React, Flask, Rest APIs, Git, Agile, Jira, Selenium, Linux, MySQL, Pandas, Microsoft Excel, AWS Cloud Operations, Machine Learning, Docker, Terraform, CI/CD
-                </p>
-                <p><strong>Non-professional Interests</strong></p>
-                <ul>
-                    <li>Weight-lifting</li>
-                    <li>Audiobooks (fantasy themes)</li>
-                    <li>League of Legends</li>
-                    <li>Cats</li>
-                </ul>
-            </section>
-            
-            <section id="contact">
-                <h2>Contact</h2>
-                <p>
-                    <a href="mailto:marshall.junior03@gmail.com">marshall.junior03@gmail.com</a><br>
-                    <a href="https://www.linkedin.com/in/marshall-williams-274933191/" target="_blank">LinkedIn</a><br>
-                    <a href="https://github.com/MarshallWilliams1" target="_blank">GitHub</a>
-                </p>
-            </section>
-
-            <section id="projects">
-                <h2>Projects</h2>
-
-                <div class="project">
-                    <p>
-                        <a href="https://github.com/MarshallWilliams1/taxi" target="_blank">NYC Taxi Data Analytics & Prediction Platform</a> - Architected a containerized, serverless AWS pipeline using S3, Athena, and Fargate to process millions of taxi records. Built a machine learning model with SageMaker to predict trip durations and created dashboards for visualizing rider demand and fare data.
-                    </p>
-                    <div class="project-images">
-                        <img src="taxi1.png" alt="Project image 1">
-                        <img src="taxi2.png" alt="Project image 2">
-                    </div>
-                </div>
-
-                <div class="project">
-                     <p>
-                        <a href="https://github.com/MarshallWilliams1/riot-etl" target="_blank">Riot Games Match Data Analytics Platform</a> - Engineered a Python ETL pipeline to process Riot API data into a MySQL database for game performance analysis. Created a Flask REST API to serve stats and built a responsive React and Tailwind CSS single-page application for interactive data visualization.
-                    </p>
-                    <div class="project-images">
-                        <img src="riot1.png" alt="Project image 1">
-                        <img src="riot2.png" alt="Project image 2">
-                    </div>
-                </div>
-                
-                <div class="project">
-                    <p>
-                        <a href="https://github.com/MarshallWilliams1/Overthrow" target="_blank">Overthrow: Real-Time Multiplayer Strategy Game</a> - Engineered a scalable Node.js/Express backend with Socket.IO for real-time multiplayer matches. Architected server-side logic to coordinate game flow with low-latency updates and integrated Redis for consistent state management.
-                    </p>
-                    <div class="project-images">
-                        <img src="ot1.png" alt="Project image 1">
-                        <img src="ot2.png" alt="Project image 2">
-                    </div>
-                </div>
-            </section>
-
-        </main>
-
+  <section class="hero">
+    <svg class="hero-chart" viewBox="0 0 500 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <polyline points="0,230 60,210 120,240 180,150 240,175 300,90 360,120 420,45 500,70" stroke="#2dd4bf" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <polyline points="0,260 60,255 120,220 180,235 240,190 300,205 360,150 420,165 500,120" stroke="#818cf8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+      <g fill="#2dd4bf">
+        <circle cx="420" cy="45" r="5"/>
+      </g>
+    </svg>
+    <div class="wrap">
+      <div class="hero-copy">
+        <span class="eyebrow"><span class="dot"></span> CS &amp; History grad · Open to Data &amp; Decision Science roles</span>
+        <h1>I turn messy data<br>into <span>decisions that matter.</span></h1>
+        <p class="lede">
+          I'm Marshall, a Computer Science &amp; History graduate who builds predictive models and data pipelines, then uses them to answer a simple question: <em>what should we actually do next?</em>
+        </p>
+        <div class="hero-ctas">
+          <a href="#projects" class="btn btn-primary">View Projects</a>
+          <a href="resume.pdf" target="_blank" class="btn btn-ghost">Download Résumé</a>
+          <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+        </div>
+        <div class="hero-socials">
+          <a href="mailto:marshall.williams184@gmail.com">Email</a>
+          <a href="https://www.linkedin.com/in/marshall-williams-274933191/" target="_blank">LinkedIn</a>
+          <a href="https://github.com/MarshallWilliams1" target="_blank">GitHub</a>
+        </div>
+      </div>
+      <div class="hero-photo-wrap">
+        <div class="hero-photo-ring"></div>
+        <img src="profile1.jpg" alt="Portrait of Marshall Williams" class="hero-photo">
+        <div class="hero-badge">
+          <span class="num">3.90</span> GPA · Phi Beta Kappa
+        </div>
+      </div>
     </div>
+  </section>
+
+  <section id="about" class="section">
+    <div class="wrap about-grid">
+      <div class="about-copy">
+        <span class="kicker">About</span>
+        <h2 style="margin-bottom:1.25rem;">Where engineering meets decision-making</h2>
+        <p>
+          I just graduated from Texas State University with a 3.90 GPA, Phi Beta Kappa, and a double major in Computer Science and History. It turned out to be a good combination for decision science: CS gives me the tools to build the model, and History trained me to interrogate evidence and build a causal argument for what it means.
+        </p>
+        <p>
+          This past summer I interned at Planview, where I identified a costly business problem (escalated support cases) and built a machine learning pipeline end-to-end to predict which cases were at risk, from stakeholder requirements through a production Azure ETL job. Outside of that, I'm one of the team leads for H-E-B's roughly 100-person service team, managing shifts of up to 25 people at a time. I use the same instinct there: look at the data, then change the process, to cut long customer waits and hit throughput targets. I even turned my League of Legends habit into a computer-vision side project.
+        </p>
+        <p>
+          I'm currently looking for Data Science or Decision Science roles where I can keep doing that: measure, model, decide, iterate, just at a larger scale.
+        </p>
+      </div>
+      <div class="fact-card">
+        <dl>
+          <div class="fact-row"><dt>Education</dt><dd>B.A. Computer Science &amp; History, Texas State University</dd></div>
+          <div class="fact-row"><dt>Latest Role</dt><dd>Intern, Planview (Summer 2026)</dd></div>
+          <div class="fact-row"><dt>Current Role</dt><dd>Service Team Lead, H-E-B</dd></div>
+          <div class="fact-row"><dt>Focus Areas</dt><dd>Predictive Analytics, ML, Data Pipelines</dd></div>
+          <div class="fact-row"><dt>Core Stack</dt><dd>Python, SQL, AWS, Scikit-learn</dd></div>
+          <div class="fact-row"><dt>Outside Work</dt><dd>Weight-lifting, fantasy audiobooks, League of Legends, cats</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" class="section section-alt">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">Experience</span>
+        <h2>Applying data to real decisions</h2>
+        <p>From optimizing a live retail floor to shipping tested software features, both roles came down to reading data and changing behavior in response.</p>
+      </div>
+
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-head">
+            <h3>Intern</h3>
+            <span class="tl-org">Planview Strategic Portfolio Management Systems</span>
+            <span class="tl-date">May 2026 – Aug 2026</span>
+          </div>
+          <div class="tl-focus">Predictive Analytics Pipeline for Escalation Risk</div>
+          <ul>
+            <li>Identified the business opportunity to reduce costly case escalations, pitched it to stakeholders, and owned the project end-to-end, gathering requirements directly from Escalation Managers through delivery.</li>
+            <li>Tested <strong>40+ feature variables</strong> and resolved data leakage issues to build a trusted model, training on <strong>100,000+</strong> historical Salesforce cases via SOQL.</li>
+            <li>Shipped an automated ETL pipeline hosted on <strong>Azure</strong> that produces daily case-risk score reports for <strong>15+ members of leadership</strong>, improving case prioritization and reducing SLA violations.</li>
+          </ul>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-head">
+            <h3>Service Team Lead</h3>
+            <span class="tl-org">H-E-B</span>
+            <span class="tl-date">Feb 2020 – Present</span>
+          </div>
+          <ul>
+            <li>Promoted to Service Team Lead in 2023 after 3+ years as a Cashier, recognized for reliability and performance.</li>
+            <li>Serve as the primary point of contact for up to <strong>25 team members</strong> at a time, assigning registers and breaks and resolving issues in real time.</li>
+            <li><strong>Cut long customer waits below 10%</strong> by using system-tracked average cart-size data to guide checkout lane assignment. It was a hands-on lesson in turning operational data into an immediate decision.</li>
+            <li>Trained <strong>25+</strong> new and existing team members across multiple roles within a single 3-month hiring season, and mentor on KPIs like items-per-minute and produce scan rate.</li>
+          </ul>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-head">
+            <h3>Intern Software Developer</h3>
+            <span class="tl-org">Accio Data Software</span>
+            <span class="tl-date">Dec 2022 – Aug 2023</span>
+          </div>
+          <ul>
+            <li>Learned Java development practices, Selenium test automation, relational databases, LaTeX documentation, Agile development, and Git version control through mentorship from senior software developers.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education" class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">Education</span>
+        <h2>Foundation</h2>
+      </div>
+      <div class="edu-card">
+        <div class="edu-icon">🎓</div>
+        <div>
+          <h3>Bachelor of Arts, Computer Science &amp; History</h3>
+          <div class="edu-sub">Texas State University, San Marcos · Graduated August 2026</div>
+          <div class="edu-meta">
+            <span class="pill">3.90 GPA</span>
+            <span class="pill">Phi Beta Kappa</span>
+            <span class="pill">Dean's List, every semester</span>
+            <span class="pill">Texas State Achievement Scholarship</span>
+          </div>
+          <p>
+            A dual-degree track pairing quantitative CS coursework with History's emphasis on evidence, causality, and narrative. Those are the same skills that turn a model's output into a decision someone will actually act on.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="section section-alt">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">Projects</span>
+        <h2>Data pipelines, models, and the dashboards that make them useful</h2>
+        <p>A few systems I've built end-to-end, from raw data to a decision or a visualization someone can actually use.</p>
+      </div>
+
+      <div class="projects-grid">
+
+        <article class="project-card">
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag">AWS</span>
+              <span class="tag">SageMaker</span>
+              <span class="tag">ETL</span>
+              <span class="tag">Terraform</span>
+            </div>
+            <h3><a href="https://github.com/MarshallWilliams1/taxi" target="_blank">NYC Taxi Data Analytics &amp; Prediction Platform</a></h3>
+            <ul>
+              <li>Developed a serverless AWS pipeline (S3, Fargate, Athena) processing <strong>millions of NYC public taxi records</strong> into clean insights, with deployment automated via Terraform and GitHub Actions CI/CD.</li>
+              <li>Trained an AWS <strong>SageMaker</strong> model to predict both trip durations and pickup locations.</li>
+              <li>Used Jupyter and SQL exploration to surface demand and fare trends across millions of trips.</li>
+            </ul>
+            <a href="https://github.com/MarshallWilliams1/taxi" target="_blank" class="project-link">View repository →</a>
+          </div>
+          <div class="project-shots">
+            <img src="taxi1.png" alt="NYC Taxi platform dashboard screenshot" onclick="openLightbox(this.src)">
+            <img src="taxi2.png" alt="NYC Taxi platform architecture or model output" onclick="openLightbox(this.src)">
+          </div>
+        </article>
+
+        <article class="project-card reverse">
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">SQL</span>
+              <span class="tag">Postgres</span>
+              <span class="tag">CI/CD</span>
+            </div>
+            <h3><a href="https://github.com/MarshallWilliams1/riot-etl" target="_blank">Riot Games Match Data Analytics Platform</a></h3>
+            <ul>
+              <li>Built an automated <strong>ETL pipeline</strong> that pulls, cleans, and normalizes League of Legends match data from a public API into a relational Postgres database, processing thousands of match records.</li>
+              <li>Designed SQL aggregation views surfacing win-rate, meta-trend, and player-performance insights across multiple report views.</li>
+              <li>Delivered through a deployed full-stack dashboard with automated CI/CD.</li>
+            </ul>
+            <a href="https://github.com/MarshallWilliams1/riot-etl" target="_blank" class="project-link">View repository →</a>
+          </div>
+          <div class="project-shots">
+            <img src="riot1.png" alt="Riot Games analytics dashboard screenshot" onclick="openLightbox(this.src)">
+            <img src="riot2.png" alt="Riot Games analytics data view" onclick="openLightbox(this.src)">
+          </div>
+        </article>
+
+        <article class="project-card no-shots">
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">OpenCV</span>
+              <span class="tag">NumPy</span>
+              <span class="tag">Computer Vision</span>
+            </div>
+            <h3><a href="https://github.com/Blotjarl/lol-minimap-tracker" target="_blank">League of Legends Minimap Champion Tracker</a></h3>
+            <ul>
+              <li>Built a classical computer-vision pipeline with <strong>OpenCV</strong> and NumPy that extracts the minimap from League of Legends gameplay video and detects blue/red champion icons by color.</li>
+              <li>Implemented frame-to-frame nearest-neighbor tracking to draw movement trails and export per-frame position data to CSV for downstream analysis.</li>
+              <li>Ran structured experiments varying trail length and tracking-distance thresholds to evaluate the clutter-vs-continuity tradeoff across low- and high-density teamfight scenarios.</li>
+            </ul>
+            <a href="https://github.com/Blotjarl/lol-minimap-tracker" target="_blank" class="project-link">View repository →</a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag">Node.js</span>
+              <span class="tag">WebSockets</span>
+              <span class="tag">Redis</span>
+            </div>
+            <h3><a href="https://github.com/MarshallWilliams1/Overthrow" target="_blank">Overthrow: Real-Time Multiplayer Strategy Game</a></h3>
+            <ul>
+              <li>Engineered a scalable Node.js/Express backend with Socket.IO for real-time multiplayer matches.</li>
+              <li>Architected server-side logic to coordinate game flow with low-latency updates.</li>
+              <li>Integrated Redis for consistent state management across distributed servers.</li>
+            </ul>
+            <a href="https://github.com/MarshallWilliams1/Overthrow" target="_blank" class="project-link">View repository →</a>
+          </div>
+          <div class="project-shots">
+            <img src="ot1.png" alt="Overthrow game screenshot" onclick="openLightbox(this.src)">
+            <img src="ot2.png" alt="Overthrow game screenshot" onclick="openLightbox(this.src)">
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">Skills</span>
+        <h2>Toolkit</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3><span class="sw"></span>Data &amp; Analytics</h3>
+          <div class="skill-list">
+            <span>Machine Learning</span><span>Data Analysis</span><span>Data Pipelines / ETL</span><span>Dashboard Design</span><span>Power BI</span><span>Excel</span><span>Salesforce</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3><span class="sw"></span>Technical</h3>
+          <div class="skill-list">
+            <span>Python</span><span>Java</span><span>SQL</span><span>Scikit-learn</span><span>Pandas</span><span>AWS</span><span>Azure</span><span>Docker</span><span>Terraform</span><span>PostgreSQL</span><span>OpenCV</span><span>Git</span><span>Generative AI / Claude Code</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3><span class="sw"></span>Business &amp; Leadership</h3>
+          <div class="skill-list">
+            <span>Team Leadership</span><span>Training &amp; Mentoring</span><span>Stakeholder Communication</span><span>Customer Service</span><span>Agile / Jira</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <div class="wrap">
+      <div class="contact-band">
+        <div>
+          <h2>Let's talk data.</h2>
+          <p>Open to Data Science and Decision Science roles, internships, and interesting problems in between. I usually reply within a day.</p>
+        </div>
+        <div class="contact-links">
+          <a class="contact-link" href="mailto:marshall.williams184@gmail.com">Email <span class="arrow">→</span></a>
+          <a class="contact-link" href="https://www.linkedin.com/in/marshall-williams-274933191/" target="_blank">LinkedIn <span class="arrow">→</span></a>
+          <a class="contact-link" href="https://github.com/MarshallWilliams1" target="_blank">GitHub <span class="arrow">→</span></a>
+          <a class="contact-link" href="resume.pdf" target="_blank">Résumé (PDF) <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>&copy; <span id="year"></span> Marshall Williams. Built with plain HTML &amp; CSS.</p>
+</footer>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <img id="lightboxImg" src="" alt="Expanded project screenshot">
+</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Header scroll state
+  const header = document.getElementById('siteHeader');
+  const onScroll = () => {
+    header.classList.toggle('scrolled', window.scrollY > 20);
+  };
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  // Mobile nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', isOpen);
+  });
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Scroll-spy active nav link
+  const sections = ['about', 'experience', 'projects', 'skills', 'contact']
+    .map(id => document.getElementById(id))
+    .filter(Boolean);
+  const navAnchors = Array.from(document.querySelectorAll('.navlinks a[href^="#"]'));
+
+  const spy = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const link = navAnchors.find(a => a.getAttribute('href') === '#' + entry.target.id);
+      if (!link) return;
+      if (entry.isIntersecting) {
+        navAnchors.forEach(a => a.classList.remove('active'));
+        link.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-40% 0px -50% 0px', threshold: 0 });
+
+  sections.forEach(sec => spy.observe(sec));
+
+  // Lightbox
+  function openLightbox(src){
+    document.getElementById('lightboxImg').src = src;
+    document.getElementById('lightbox').classList.add('open');
+  }
+  function closeLightbox(){
+    document.getElementById('lightbox').classList.remove('open');
+  }
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+</script>
 
 </body>
 </html>
-
-

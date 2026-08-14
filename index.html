@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Marshall Williams | Data & Decision Science</title>
-<meta name="description" content="Marshall Williams is a Computer Science and History graduate working in data and decision science. Predictive analytics, ML pipelines, and data engineering on AWS and Azure.">
+<title>Marshall Williams | Financial Analyst</title>
+<meta name="description" content="Marshall Williams is a Computer Science and History graduate working in financial and data analysis. Trend analysis, forecasting, and reporting for decision-makers.">
 
 <!-- Open Graph -->
-<meta property="og:title" content="Marshall Williams | Data & Decision Science">
-<meta property="og:description" content="Turning raw data into decisions. Predictive analytics, ML pipelines, and data engineering.">
+<meta property="og:title" content="Marshall Williams | Financial Analyst">
+<meta property="og:description" content="Turning raw data into forecasts and decisions. Trend analysis, reporting, and financial modeling.">
 <meta property="og:image" content="profile1.jpg">
 <meta property="og:type" content="website">
 
@@ -448,6 +448,10 @@
   .tl-item li strong{ color: var(--ink); }
 
   /* ---------- Education ---------- */
+  .edu-grid{
+    display: grid;
+    gap: 1.5rem;
+  }
   .edu-card{
     display: grid;
     grid-template-columns: auto 1fr;
@@ -504,8 +508,6 @@
   .project-card.reverse{ grid-template-columns: 1fr 1.05fr; }
   .project-card.reverse .project-body{ order: 2; }
   .project-card.reverse .project-shots{ order: 1; }
-  .project-card.no-shots{ grid-template-columns: 1fr; }
-  .project-card.no-shots .project-body ul{ max-width: 65ch; }
   .project-tags{
     display: flex;
     flex-wrap: wrap;
@@ -527,29 +529,35 @@
     font-size: 1.3rem;
     letter-spacing: -.01em;
   }
-  .project-body h3 a{
-    text-decoration: none;
-    color: var(--ink);
-  }
-  .project-body h3 a:hover{ color: var(--accent-ink); }
   .project-body ul{
-    margin: 0 0 1.1rem;
+    margin: 0;
     padding-left: 1.1rem;
     color: var(--ink-soft);
     line-height: 1.6;
     font-size: .93rem;
   }
   .project-body li{ margin-bottom: .4rem; }
-  .project-link{
-    display: inline-flex;
-    align-items: center;
-    gap: .4rem;
-    font-size: .87rem;
-    font-weight: 600;
-    color: var(--accent-ink);
-    text-decoration: none;
+  .projects-secondary{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
   }
-  .project-link:hover{ text-decoration: underline; }
+  .project-compact{
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+  }
+  .project-compact h4{
+    margin: 0 0 .4rem;
+    font-size: 1rem;
+  }
+  .project-compact p{
+    margin: 0;
+    color: var(--ink-soft);
+    font-size: .85rem;
+    line-height: 1.55;
+  }
   .project-shots{
     display: grid;
     gap: .75rem;
@@ -689,6 +697,7 @@
     .project-card.reverse .project-body,
     .project-card.reverse .project-shots{ order: initial; }
     .project-shots{ grid-template-columns: 1fr 1fr; }
+    .projects-secondary{ grid-template-columns: 1fr; }
     .contact-band{ grid-template-columns: 1fr; padding: 2.5rem 1.75rem; }
     .skills-grid{ grid-template-columns: 1fr; }
   }
@@ -755,10 +764,10 @@
     </svg>
     <div class="wrap">
       <div class="hero-copy">
-        <span class="eyebrow"><span class="dot"></span> CS &amp; History grad · Open to Data &amp; Decision Science roles</span>
+        <span class="eyebrow"><span class="dot"></span> CS &amp; History grad · Open to Financial Analyst roles</span>
         <h1>I turn messy data<br>into <span>decisions that matter.</span></h1>
         <p class="lede">
-          I'm Marshall, a Computer Science &amp; History graduate who builds predictive models and data pipelines, then uses them to answer a simple question: <em>what should we actually do next?</em>
+          I'm Marshall, a Computer Science &amp; History graduate who builds financial forecasts and trend analysis, then uses them to answer a simple question: <em>what should we actually do next?</em>
         </p>
         <div class="hero-ctas">
           <a href="#projects" class="btn btn-primary">View Projects</a>
@@ -785,15 +794,15 @@
     <div class="wrap about-grid">
       <div class="about-copy">
         <span class="kicker">About</span>
-        <h2 style="margin-bottom:1.25rem;">Where engineering meets decision-making</h2>
+        <h2 style="margin-bottom:1.25rem;">Where analysis meets decision-making</h2>
         <p>
-          I just graduated from Texas State University with a 3.90 GPA, Phi Beta Kappa, and a double major in Computer Science and History. It turned out to be a good combination for decision science: CS gives me the tools to build the model, and History trained me to interrogate evidence and build a causal argument for what it means.
+          I just graduated from Texas State University with a 3.90 GPA, Phi Beta Kappa, and a double major in Computer Science and History. My capstone research traced how French reparations policy and currency strategy drove the 1923 Ruhr Crisis, which is really just applied economic analysis: read the data, build the argument, explain what it means. CS gave me the tools to build the model, and History taught me how to make that argument hold up.
         </p>
         <p>
-          This past summer I interned at Planview, where I identified a costly business problem (escalated support cases) and built a machine learning pipeline end-to-end to predict which cases were at risk, from stakeholder requirements through a production Azure ETL job. Outside of that, I'm one of the team leads for H-E-B's roughly 100-person service team, managing shifts of up to 25 people at a time. I use the same instinct there: look at the data, then change the process, to cut long customer waits and hit throughput targets. I even turned my League of Legends habit into a computer-vision side project.
+          This past summer I interned at Planview, where I identified a costly business problem (escalated support cases) and built a forecasting system end to end, from stakeholder requirements through a production reporting pipeline delivered to leadership. Outside of that, I'm one of the team leads for H-E-B's roughly 100-person service team, managing shifts of up to 25 people at a time. I use the same instinct there: look at the trends, then change the process, to cut wait times and hit throughput targets. I even turned my League of Legends habit into a couple of side projects, from match analytics dashboards to a computer-vision tracker.
         </p>
         <p>
-          I'm currently looking for Data Science or Decision Science roles where I can keep doing that: measure, model, decide, iterate, just at a larger scale.
+          I'm currently looking for Financial Analyst roles where I can keep doing that: read the trend, build the model, make the call, then check the results and do it again.
         </p>
       </div>
       <div class="fact-card">
@@ -801,8 +810,8 @@
           <div class="fact-row"><dt>Education</dt><dd>B.A. Computer Science &amp; History, Texas State University</dd></div>
           <div class="fact-row"><dt>Latest Role</dt><dd>Intern, Planview (Summer 2026)</dd></div>
           <div class="fact-row"><dt>Current Role</dt><dd>Service Team Lead, H-E-B</dd></div>
-          <div class="fact-row"><dt>Focus Areas</dt><dd>Predictive Analytics, ML, Data Pipelines</dd></div>
-          <div class="fact-row"><dt>Core Stack</dt><dd>Python, SQL, AWS, Scikit-learn</dd></div>
+          <div class="fact-row"><dt>Focus Areas</dt><dd>Financial Analysis, Forecasting, Reporting</dd></div>
+          <div class="fact-row"><dt>Core Stack</dt><dd>Excel, Power BI, SQL, Python</dd></div>
           <div class="fact-row"><dt>Outside Work</dt><dd>Weight-lifting, fantasy audiobooks, League of Legends, cats</dd></div>
         </dl>
       </div>
@@ -813,8 +822,8 @@
     <div class="wrap">
       <div class="section-head">
         <span class="kicker">Experience</span>
-        <h2>Applying data to real decisions</h2>
-        <p>From optimizing a live retail floor to shipping tested software features, both roles came down to reading data and changing behavior in response.</p>
+        <h2>Applying analysis to real decisions</h2>
+        <p>From optimizing a live retail floor to forecasting business risk, both roles came down to reading data and changing behavior in response.</p>
       </div>
 
       <div class="timeline">
@@ -824,11 +833,11 @@
             <span class="tl-org">Planview Strategic Portfolio Management Systems</span>
             <span class="tl-date">May 2026 – Aug 2026</span>
           </div>
-          <div class="tl-focus">Predictive Analytics Pipeline for Escalation Risk</div>
+          <div class="tl-focus">Escalation Risk Forecasting System</div>
           <ul>
-            <li>Identified the business opportunity to reduce costly case escalations, pitched it to stakeholders, and owned the project end-to-end, gathering requirements directly from Escalation Managers through delivery.</li>
-            <li>Tested <strong>40+ feature variables</strong> and resolved data leakage issues to build a trusted model, training on <strong>100,000+</strong> historical Salesforce cases via SOQL.</li>
-            <li>Shipped an automated ETL pipeline hosted on <strong>Azure</strong> that produces daily case-risk score reports for <strong>15+ members of leadership</strong>, improving case prioritization and reducing SLA violations.</li>
+            <li>Identified the business opportunity to reduce costly case escalations, pitched it to stakeholders, and owned the project end to end, building a forecasting model to predict risk trends ahead of time.</li>
+            <li>Tested <strong>40+ feature variables</strong> and resolved data leakage issues to build a trusted model, training on <strong>100,000+</strong> historical Salesforce cases.</li>
+            <li>Delivered and presented an automated system hosted on <strong>Azure</strong> that produces daily case-risk score reports for <strong>20+ members of leadership</strong>, improving case prioritization and reducing SLA violations.</li>
           </ul>
         </div>
 
@@ -841,8 +850,9 @@
           <ul>
             <li>Promoted to Service Team Lead in 2023 after 3+ years as a Cashier, recognized for reliability and performance.</li>
             <li>Serve as the primary point of contact for up to <strong>25 team members</strong> at a time, assigning registers and breaks and resolving issues in real time.</li>
-            <li><strong>Cut long customer waits below 10%</strong> by using system-tracked average cart-size data to guide checkout lane assignment. It was a hands-on lesson in turning operational data into an immediate decision.</li>
-            <li>Trained <strong>25+</strong> new and existing team members across multiple roles within a single 3-month hiring season, and mentor on KPIs like items-per-minute and produce scan rate.</li>
+            <li>Worked with partners and other team leads to bring the department's items-per-minute KPI to <strong>98%</strong>.</li>
+            <li>Collaborated with leaders to reduce customer wait time KPI to <strong>under 10%</strong> by analyzing business trends using system-tracked average cart-size data to guide checkout lane assignment decisions.</li>
+            <li>Trained <strong>25+</strong> new and existing team members across multiple roles during a 3-month hiring season.</li>
           </ul>
         </div>
 
@@ -853,7 +863,7 @@
             <span class="tl-date">Dec 2022 – Aug 2023</span>
           </div>
           <ul>
-            <li>Learned Java development practices, Selenium test automation, relational databases, LaTeX documentation, Agile development, and Git version control through mentorship from senior software developers.</li>
+            <li>Learned LaTeX documentation, Java development practices, Selenium test automation, relational databases, Agile development, and Git version control through mentorship from software developers.</li>
           </ul>
         </div>
       </div>
@@ -866,20 +876,32 @@
         <span class="kicker">Education</span>
         <h2>Foundation</h2>
       </div>
-      <div class="edu-card">
-        <div class="edu-icon">🎓</div>
-        <div>
-          <h3>Bachelor of Arts, Computer Science &amp; History</h3>
-          <div class="edu-sub">Texas State University, San Marcos · Graduated August 2026</div>
-          <div class="edu-meta">
-            <span class="pill">3.90 GPA</span>
-            <span class="pill">Phi Beta Kappa</span>
-            <span class="pill">Dean's List, every semester</span>
-            <span class="pill">Texas State Achievement Scholarship</span>
+      <div class="edu-grid">
+        <div class="edu-card">
+          <div class="edu-icon">🎓</div>
+          <div>
+            <h3>Bachelor of Arts, Computer Science &amp; History</h3>
+            <div class="edu-sub">Texas State University, San Marcos · Graduated August 2026</div>
+            <div class="edu-meta">
+              <span class="pill">3.90 GPA</span>
+              <span class="pill">Phi Beta Kappa</span>
+              <span class="pill">Dean's List, every semester</span>
+              <span class="pill">Texas State Achievement Scholarship</span>
+            </div>
+            <p>
+              A dual-degree track pairing quantitative CS coursework with History's emphasis on evidence, causality, and narrative. Those are the same skills that turn a model's output into a decision someone will actually act on.
+            </p>
           </div>
-          <p>
-            A dual-degree track pairing quantitative CS coursework with History's emphasis on evidence, causality, and narrative. Those are the same skills that turn a model's output into a decision someone will actually act on.
-          </p>
+        </div>
+        <div class="edu-card">
+          <div class="edu-icon">📜</div>
+          <div>
+            <h3>Capstone Research: French Economic Strategy &amp; the Ruhr Crisis of 1923</h3>
+            <div class="edu-sub">Economic Research and Argument</div>
+            <p>
+              In-depth macroeconomic and historical research analyzing how French reparations policy, currency strategy, and industrial resource competition with Germany drove the 1923 Ruhr Crisis, synthesizing primary and secondary sources into a documented, evidence-based argument.
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -889,8 +911,8 @@
     <div class="wrap">
       <div class="section-head">
         <span class="kicker">Projects</span>
-        <h2>Data pipelines, models, and the dashboards that make them useful</h2>
-        <p>A few systems I've built end-to-end, from raw data to a decision or a visualization someone can actually use.</p>
+        <h2>Trend analysis and dashboards someone could act on</h2>
+        <p>A few projects where I analyzed data, built forecasts, and delivered a dashboard or report someone could actually use to make a call.</p>
       </div>
 
       <div class="projects-grid">
@@ -898,18 +920,36 @@
         <article class="project-card">
           <div class="project-body">
             <div class="project-tags">
-              <span class="tag">AWS</span>
-              <span class="tag">SageMaker</span>
-              <span class="tag">ETL</span>
-              <span class="tag">Terraform</span>
+              <span class="tag">SQL</span>
+              <span class="tag">Python</span>
+              <span class="tag">Postgres</span>
+              <span class="tag">Reporting</span>
             </div>
-            <h3><a href="https://github.com/MarshallWilliams1/taxi" target="_blank">NYC Taxi Data Analytics &amp; Prediction Platform</a></h3>
+            <h3>Riot Games Match Data Analytics Platform</h3>
             <ul>
-              <li>Developed a serverless AWS pipeline (S3, Fargate, Athena) processing <strong>millions of NYC public taxi records</strong> into clean insights, with deployment automated via Terraform and GitHub Actions CI/CD.</li>
-              <li>Trained an AWS <strong>SageMaker</strong> model to predict both trip durations and pickup locations.</li>
-              <li>Used Jupyter and SQL exploration to surface demand and fare trends across millions of trips.</li>
+              <li>Developed SQL aggregation views and a reporting dashboard to surface win-rate and performance trends, translating raw match data into decision-ready insights for evaluating competitive strategy.</li>
+              <li>Built an automated ETL pipeline that pulls, cleans, and normalizes League of Legends match data from a public API into a relational Postgres database, processing thousands of match records.</li>
             </ul>
-            <a href="https://github.com/MarshallWilliams1/taxi" target="_blank" class="project-link">View repository →</a>
+          </div>
+          <div class="project-shots">
+            <img src="riot1.png" alt="Rift Insights meta trends chart showing champion win rate across patches" onclick="openLightbox(this.src)">
+            <img src="riot2.png" alt="Rift Insights bias insights page showing selection-effect methodology and results" onclick="openLightbox(this.src)">
+          </div>
+        </article>
+
+        <article class="project-card reverse">
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag">AWS</span>
+              <span class="tag">Python</span>
+              <span class="tag">SQL</span>
+              <span class="tag">Forecasting</span>
+            </div>
+            <h3>NYC Taxi Data Analytics &amp; Prediction Platform</h3>
+            <ul>
+              <li>Analyzed millions of NYC taxi records to identify demand and fare trends across time and location, building a predictive model to forecast trip patterns and surface actionable insights for planning purposes.</li>
+              <li>Built and automated a cloud data pipeline on AWS to reliably process large-scale transactional data, ensuring clean, trustworthy inputs for downstream trend and forecasting analysis.</li>
+            </ul>
           </div>
           <div class="project-shots">
             <img src="taxi1.png" alt="NYC Taxi platform dashboard screenshot" onclick="openLightbox(this.src)">
@@ -917,67 +957,20 @@
           </div>
         </article>
 
-        <article class="project-card reverse">
-          <div class="project-body">
-            <div class="project-tags">
-              <span class="tag">Python</span>
-              <span class="tag">SQL</span>
-              <span class="tag">Postgres</span>
-              <span class="tag">CI/CD</span>
-            </div>
-            <h3><a href="https://github.com/MarshallWilliams1/riot-etl" target="_blank">Riot Games Match Data Analytics Platform</a></h3>
-            <ul>
-              <li>Built an automated <strong>ETL pipeline</strong> that pulls, cleans, and normalizes League of Legends match data from a public API into a relational Postgres database, processing thousands of match records.</li>
-              <li>Designed SQL aggregation views surfacing win-rate, meta-trend, and player-performance insights across multiple report views.</li>
-              <li>Delivered through a deployed full-stack dashboard with automated CI/CD.</li>
-            </ul>
-            <a href="https://github.com/MarshallWilliams1/riot-etl" target="_blank" class="project-link">View repository →</a>
-          </div>
-          <div class="project-shots">
-            <img src="riot1.png" alt="Riot Games analytics dashboard screenshot" onclick="openLightbox(this.src)">
-            <img src="riot2.png" alt="Riot Games analytics data view" onclick="openLightbox(this.src)">
-          </div>
-        </article>
+      </div>
 
-        <article class="project-card no-shots">
-          <div class="project-body">
-            <div class="project-tags">
-              <span class="tag">Python</span>
-              <span class="tag">OpenCV</span>
-              <span class="tag">NumPy</span>
-              <span class="tag">Computer Vision</span>
-            </div>
-            <h3><a href="https://github.com/Blotjarl/lol-minimap-tracker" target="_blank">League of Legends Minimap Champion Tracker</a></h3>
-            <ul>
-              <li>Built a classical computer-vision pipeline with <strong>OpenCV</strong> and NumPy that extracts the minimap from League of Legends gameplay video and detects blue/red champion icons by color.</li>
-              <li>Implemented frame-to-frame nearest-neighbor tracking to draw movement trails and export per-frame position data to CSV for downstream analysis.</li>
-              <li>Ran structured experiments varying trail length and tracking-distance thresholds to evaluate the clutter-vs-continuity tradeoff across low- and high-density teamfight scenarios.</li>
-            </ul>
-            <a href="https://github.com/Blotjarl/lol-minimap-tracker" target="_blank" class="project-link">View repository →</a>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <div class="project-body">
-            <div class="project-tags">
-              <span class="tag">Node.js</span>
-              <span class="tag">WebSockets</span>
-              <span class="tag">Redis</span>
-            </div>
-            <h3><a href="https://github.com/MarshallWilliams1/Overthrow" target="_blank">Overthrow: Real-Time Multiplayer Strategy Game</a></h3>
-            <ul>
-              <li>Engineered a scalable Node.js/Express backend with Socket.IO for real-time multiplayer matches.</li>
-              <li>Architected server-side logic to coordinate game flow with low-latency updates.</li>
-              <li>Integrated Redis for consistent state management across distributed servers.</li>
-            </ul>
-            <a href="https://github.com/MarshallWilliams1/Overthrow" target="_blank" class="project-link">View repository →</a>
-          </div>
-          <div class="project-shots">
-            <img src="ot1.png" alt="Overthrow game screenshot" onclick="openLightbox(this.src)">
-            <img src="ot2.png" alt="Overthrow game screenshot" onclick="openLightbox(this.src)">
-          </div>
-        </article>
-
+      <div class="section-head" style="margin: 3.5rem 0 1.25rem;">
+        <span class="kicker">Other Projects</span>
+      </div>
+      <div class="projects-secondary">
+        <div class="project-compact">
+          <h4>League of Legends Minimap Champion Tracker</h4>
+          <p>A classical computer-vision pipeline built with OpenCV and NumPy that tracks champion movement on the League of Legends minimap and exports per-frame position data for analysis.</p>
+        </div>
+        <div class="project-compact">
+          <h4>Overthrow: Real-Time Multiplayer Strategy Game</h4>
+          <p>A Node.js and Socket.IO backend coordinating real-time multiplayer matches, with Redis handling consistent state management across distributed servers.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -990,21 +983,21 @@
       </div>
       <div class="skills-grid">
         <div class="skill-card">
-          <h3><span class="sw"></span>Data &amp; Analytics</h3>
+          <h3><span class="sw"></span>Data Reporting</h3>
           <div class="skill-list">
-            <span>Machine Learning</span><span>Data Analysis</span><span>Data Pipelines / ETL</span><span>Dashboard Design</span><span>Power BI</span><span>Excel</span><span>Salesforce</span>
+            <span>Data Analysis</span><span>Excel</span><span>Power BI</span><span>Dashboard Design</span><span>Machine Learning</span><span>Data Pipelines</span><span>Salesforce</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3><span class="sw"></span>Business</h3>
+          <div class="skill-list">
+            <span>Team Leadership</span><span>Training &amp; Mentoring</span><span>Cross-Functional Collaboration</span><span>Stakeholder Communication</span><span>Project Coordination</span><span>Customer Service</span><span>Presentations</span>
           </div>
         </div>
         <div class="skill-card">
           <h3><span class="sw"></span>Technical</h3>
           <div class="skill-list">
-            <span>Python</span><span>Java</span><span>SQL</span><span>Scikit-learn</span><span>Pandas</span><span>AWS</span><span>Azure</span><span>Docker</span><span>Terraform</span><span>PostgreSQL</span><span>OpenCV</span><span>Git</span><span>Generative AI / Claude Code</span>
-          </div>
-        </div>
-        <div class="skill-card">
-          <h3><span class="sw"></span>Business &amp; Leadership</h3>
-          <div class="skill-list">
-            <span>Team Leadership</span><span>Training &amp; Mentoring</span><span>Stakeholder Communication</span><span>Customer Service</span><span>Agile / Jira</span>
+            <span>Python</span><span>Java</span><span>SQL</span><span>Scikit-learn</span><span>Pandas</span><span>Git</span><span>Agile</span><span>JIRA</span><span>AWS</span><span>Docker</span><span>Generative AI / Claude Code</span>
           </div>
         </div>
       </div>
@@ -1015,8 +1008,8 @@
     <div class="wrap">
       <div class="contact-band">
         <div>
-          <h2>Let's talk data.</h2>
-          <p>Open to Data Science and Decision Science roles, internships, and interesting problems in between. I usually reply within a day.</p>
+          <h2>Let's talk numbers.</h2>
+          <p>Open to Financial Analyst roles, internships, and interesting problems in between. I usually reply within a day.</p>
         </div>
         <div class="contact-links">
           <a class="contact-link" href="mailto:marshall.williams184@gmail.com">Email <span class="arrow">→</span></a>
